@@ -189,3 +189,89 @@ const ages = [calcAge(years1[0]), calcAge(years1[1]), calcAge(years1[2]), calcAg
 console.log(ages)
 
 // Basic Array Operations (Methods)
+
+// push function addes content to the end of the array
+const friends1 = ['Mikael', 'Peter', 'Salman']
+console.log(friends1)
+friends1.push('Jay') // push() is a function and also return something which is lenght of array
+const newlength = friends1.push('ABC')
+console.log(newlength) // we can see the output in the console
+console.log(friends1)
+
+// unshift method we can add content at the bigning of the array
+// unshift()
+friends1.unshift('Ali')
+console.log(friends1)
+
+// rmeove last elemnt from the array POP method pop() it doesnt take any arrgument
+// it returns the value we removed so if we want to capture we can store it in a variable then run the function
+const popped = friends1.pop()
+console.log(popped)
+console.log(friends1)
+friends1.pop()
+console.log(friends1)
+
+
+// shift() Methods returns value we removed if we needed
+const shift = friends1.shift() // shift method remove first element in array list
+console.log(shift) // We captured what was removed
+console.log(friends1)
+
+// indexOf Method returns the index number of provided value
+// includes() Checks strict equality check it doesnt do ttype coercion
+console.log(friends1.indexOf('Salman')) // We get index value
+console.log(friends1.includes('Salman')) // We get boolean value
+console.log(friends1.includes('Bob')) // We get boolean value
+
+if (friends1.includes('Salman')){
+    console.log('You have a friend Salman')
+}
+
+
+// CHALLENGE #2
+// Steven wants you to improve his tip calculator, using the same rules as before — tip 15% of the bill if the bill value is between 50 and 300, and if the value is different, the tip is 20%.
+
+// Your tasks:
+
+// Write a function calcTip that takes any bill value as an input and returns the corresponding tip, calculated based on the rules above (you can check out the code from the first tip calculator challenge if you need to). Use the function type you like the most. Test the function using a bill value of 100.
+
+// And now let's use arrays! So, create an array called bills containing the test data below.
+
+// Create an array called tips containing the tip value for each bill, calculated from the function you created before.
+
+// BONUS: Create an array totals containing the total values, so the bill + tip.
+
+// TEST DATA: 125, 555, and 44.
+
+// Answer
+
+// Standard:
+
+const calcTips = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+}
+ 
+const bills1 = [125, 555, 44];
+const tips1 = [calcTip(bills1[0]), calcTip(bills1[1]), calcTip(bills1[2])];
+ 
+console.log(bills, tips);
+// You can also use an arrow function for calcTip if you prefer that
+
+const calcTips1 = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+
+// With Bonus:
+
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+}
+ 
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+ 
+console.log(bills, tips, totals);
+
+
+// Introduction to Objects
+
