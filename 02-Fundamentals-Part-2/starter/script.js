@@ -252,9 +252,9 @@ const calcTips = function (bill) {
 }
  
 const bills1 = [125, 555, 44];
-const tips1 = [calcTip(bills1[0]), calcTip(bills1[1]), calcTip(bills1[2])];
+const tips1 = [calcTips(bills1[0]), calcTips(bills1[1]), calcTips(bills1[2])];
  
-console.log(bills, tips);
+console.log(bills1, tips1);
 // You can also use an arrow function for calcTip if you prefer that
 
 const calcTips1 = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
@@ -262,16 +262,263 @@ const calcTips1 = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 
 // With Bonus:
 
-const calcTip = function (bill) {
+const calcTip2 = function (bill) {
   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 }
  
 const bills = [125, 555, 44];
-const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+const tips = [calcTip2(bills[0]), calcTip2(bills[1]), calcTip2(bills[2])];
 const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
  
 console.log(bills, tips, totals);
 
 
 // Introduction to Objects
+// Object is Key Value pairs seprated by commas
+// mikael is object name
+// other are properties (Key: Value)
+const mikael = {
+    firstName: 'Mikael',
+    lastName: 'Koradiya',
+    age: 2023 - 1997,
+    job: 'Developer',
+    friendsName: ['Mikael', 'Salman', 'Jonas']
+}
+
+// Dot notation bracket notation retives data
+
+console.log(mikael.lastName);
+console.log(mikael['lastName']);
+
+const nameKey = 'Name';
+console.log(mikael['first' + nameKey]);
+console.log(mikael['last' + nameKey]);
+
+// const interestedIn = prompt('Please select any one : firstName , lastName , age , job , friendsName');
+// console.log(mikael[interestedIn])
+
+// if (mikael[interestedIn]) {
+//     console.log(mikael[interestedIn]);
+// } else {
+//     console.log('Wrong request please select any one : firstName , lastName , age , job , friendsName')
+// }
+
+mikael.location = 'India';
+mikael['twitter'] = '@mikael';
+
+console.log(mikael);
+
+// Challenge
+
+// "Mikael has 3 friends , and his best friend is called Salman"
+// Arrary issues need to understand better
+// console.log(` ${mikael['firstName']} has ${friends.length}, and his best friend is called ${mikael[friendsName[1]]}`)
+
+const salman = {
+    firstName: 'Salman',
+    lastName: 'Koradiya',
+    birthYear: 1991,
+    job: 'Developer',
+    colleagues: ['Anas', 'Munaf', 'Suhail', 'Rehan'],
+    hasDriversLicences: true,
+
+    // calcAge: function () {
+    //     return 2037 - this.birthYear;
+    // },
+
+    calcAge: function () {
+        this.age = 2037 - this.birthYear
+        return this.age
+    },
+
+    getSummary: function (){
+        return `${salman.firstName} is a ${salman.calcAge()} years old ${salman.job} , and has ${this.hasDriversLicences ?  'a' : 'no'} driver's licence`
+    }
+};
+
+console.log(salman.calcAge())
+console.log(salman.age)
+console.log(salman['calcAge'](salman.birthYear)); // [] Bracket Notation remeber '' quotes (executuion)
+console.log(salman.calcAge(salman.birthYear));  // . dot Notation  remeber . (Exectution)
+
+console.log(salman.calcAge())
+console.log(salman.age)
+
+// Challenge
+
+// Salman is a 46 years old Developer, and has a driver's licence
+
+console.log(`${salman.firstName} is a ${salman.age} years old ${salman.job} , and has ${salman.hasDriversLicences} driver's licence`)
+
+console.log(salman.getSummary())
+
+// CHALLENGE #3
+// Let's go back to Mark and John comparing their BMIs!
+
+// This time, let's use objects to implement the calculations! Remember: BMI = mass / (height * height) (mass in kg and height in meters).
+
+// Your tasks:
+
+// For each of them, create an object with properties for their full name, mass, and height (Mark Miller and John Smith). Name these objects as mark and john, and their properties exactly as fullName, mass and height.
+
+// Create a calcBMI method on each object to calculate the BMI (the same method on both objects). Assign the BMI value to a property, and also return it from the method.
+
+// Log to the console who has the higher BMI, together with the full name and the respective BMI. Example: "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!".
+
+// TEST DATA: Marks weighs 78 kg and is 1.69 m tall. John weighs 92 kg and is 1.95 m tall.
+
+// IMPORTANT: The ** operator is not supported in this editor. Please make sure to use exactly this formula mass / (height * height), and not this one mass / (height ** 2).
+
+// Answer
+
+/* Write your code below. Good luck! 🙂 */
+
+const mark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    
+    calcBMI: function () {
+        mark.bmi = mark.mass / (mark.height * mark.height)
+        return mark.bmi;
+    }
+}
+
+const john = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    
+    calcBMI: function () {
+        john.bmi = john.mass / (john.height * john.height)
+        return john.bmi
+    }
+}
+
+console.log(mark.calcBMI())
+console.log(john.calcBMI())
+
+if (mark.bmi > john.bmi){
+    console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName} 's ${john.bmi}`) ;
+}else if (john.bmi > mark.bmi){
+    console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName} 's ${mark.bmi}`);
+}
+ 
+// Loops 
+////Initialization//Condition//increse counter value by one
+for (let rep = 1; rep <= 10; rep++){
+    console.log(`Lifting weight repition ${rep}`)
+}
+
+// Looping Arrrays , Breaking And Continue
+
+const jonasArray = [
+    'Jonas',
+    'Schmedtman',
+    2037 - 1991,
+    'teacher',
+    ['Mikael', 'Peter', 'Steven'],
+    true
+];
+
+const types = [];
+
+for (let i = 0; i < jonasArray.length ; i++){
+    console.log(jonasArray[i], typeof(jonasArray[i]))
+    // types[i] = typeof jonas[i]
+    types.push(typeof jonas[i])
+}
+
+console.log(types)
+
+const year = [1991, 2007, 1969, 2020];
+// const newYears = [];
+
+// for (let i = 0; i < year.length; i++){
+//     newYears.push(year[i])
+// }
+// console.log(newYears)
+
+const agess = [];
+
+for (let i = 0 ; i < year.length; i++){
+    // agess.push(2037 - year[i])
+    agess.push(2037 - year[i])
+}
+
+console.log(agess)
+
+// Continue and Break (Needed to Wrok more on this one)
+
+for (let i = 0; i < jonasArray.length ; i++){
+    if (jonas[i] !== 'String') continue;
+
+    types.push(typeof jonas[i])
+}
+
+// Backwords loops 
+
+const jonasArrays = [
+    'Jonas',
+    'Schmedtman',
+    2037 - 1991,
+    'teacher',
+    ['Mikael', 'Peter', 'Steven'],
+    true
+];
+
+for (let i = jonasArrays.length -1 ; i >= 0; i--){
+    console.log(i,jonasArrays[i])
+}
+
+// own Try Needed Checking
+// const num = [1,2,3,4,5,6]
+// const num1 = []
+// for (let i = num.length -1 ; i >= 0 ; i--){
+//     console.log(i, num[i])
+//     num1.push([i], typeof[i])
+//     console.log(num1)
+
+// }
+
+// console.log(num1)
+
+// Lopp inside a loop
+
+// for (let i = 0 ; i < 5 ; i++){
+//     console.log("I did 1 exercice")
+//     for(let x = 0 ; x < 3 ; x++){
+//         console.log("I did 1 Exercise 3 time")
+//     }
+// }
+
+for (let exercise = 1 ; exercise < 4 ; exercise++){
+    console.log(`-------Starting exercise ${exercise}`)
+
+    for (let rep = 1 ; rep < 6 ; rep++){
+        console.log(`Lifting Weight repetition ${rep}`)
+    }
+}
+
+// The While Loops
+
+for (let rep = 1 ; rep < 11 ; rep++){
+    console.log(`Lifting weight repitation ${rep}`)
+}
+
+let rep = 1; // Initial value of rep
+while (rep <= 10) { //Condition
+    console.log(`While : Lifting weight repitation ${rep}`) // template literals with rep count
+    rep++ // increment
+}
+
+// let dice = Math.trunc(Math.random() * 6) + 1;
+
+// while (dice !== 6) {
+//     console.log(`You Rolled a dice and got :${dice}`)
+//     dice = Math.trunc(Math.random() * 6) + 1;
+//     if (dice === 6) console.log('Loop is about to end')
+// }
+
+
 
