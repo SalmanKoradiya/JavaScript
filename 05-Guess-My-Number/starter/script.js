@@ -21,7 +21,7 @@ document.querySelector('.check').addEventListener('click', function () {
 
     if (score > highScore) {
       highScore = score;
-      document.querySelector('.highestscore').textContent = highScore;
+      document.querySelector('.highscore').textContent = highScore;
     }
   } else if (guess !== secretNumber) {
     if (score !== secretNumber) {
